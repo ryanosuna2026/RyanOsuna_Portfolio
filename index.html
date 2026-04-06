@@ -598,114 +598,303 @@
     .services-grid,
     .work-grid,
     .testimonials-grid,
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .service-card,
-    .work-card,
-    .testimonial-card,
-    .contact-card,
-    .find-box {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025)),
-        linear-gradient(135deg, rgba(43,66,88,0.08), rgba(166,123,50,0.05));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(14px);
+    .contact-shell {
       position: relative;
+      padding: 34px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        linear-gradient(135deg, rgba(43,66,88,0.22), rgba(166,123,50,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-xl);
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      isolation: isolate;
     }
 
-    .service-card::before,
-    .work-card::before,
-    .testimonial-card::before,
-    .contact-card::before,
-    .find-box::before {
+    .contact-shell::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 40%);
+      background-image: radial-gradient(rgba(217,215,210,0.12) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.16;
       pointer-events: none;
     }
 
-    .service-card,
-    .work-card,
-    .testimonial-card,
-    .contact-card {
-      padding: 28px;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.02fr;
+      gap: 28px;
+      align-items: stretch;
+      position: relative;
+      z-index: 1;
     }
 
-    .service-card:hover,
-    .work-card:hover,
-    .testimonial-card:hover,
-    .contact-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(166,123,50,0.22);
-      box-shadow:
-        0 20px 42px rgba(0,0,0,0.28),
-        0 0 24px rgba(166,123,50,0.10),
-        0 0 20px rgba(43,66,88,0.12);
+    .contact-info-panel {
+      padding: 18px 6px 18px 4px;
     }
 
-    .icon {
-      width: 58px;
-      height: 58px;
+    .signal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      margin-bottom: 24px;
+      border-radius: 999px;
+      background: rgba(43,66,88,0.22);
+      border: 1px solid rgba(166,123,50,0.22);
+      box-shadow: 0 0 20px rgba(43,66,88,0.12);
+    }
+
+    .signal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sconce-gold);
+      position: relative;
+      box-shadow: 0 0 18px rgba(166,123,50,0.45);
+    }
+
+    .signal-dot::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px solid rgba(166,123,50,0.28);
+      animation: pingGold 1.8s infinite;
+    }
+
+    .signal-pill span:last-child {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #f0d6a7;
+    }
+
+    .contact-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .contact-heading .text-gradient {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--essential-gray), var(--sconce-gold), #caa25b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+
+    .contact-lead {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.02rem;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .contact-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-contact-card {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(12,14,16,0.48);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.28s ease;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+
+    .mini-contact-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(166,123,50,0.26);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.22), 0 0 24px rgba(43,66,88,0.1);
+    }
+
+    .mini-contact-icon {
+      width: 52px;
+      height: 52px;
       border-radius: 18px;
       display: grid;
       place-items: center;
-      margin-bottom: 18px;
-      font-size: 1.35rem;
-      background: linear-gradient(145deg, rgba(166,123,50,0.24), rgba(43,66,88,0.2));
+      margin-bottom: 14px;
+      background: linear-gradient(145deg, rgba(166,123,50,0.18), rgba(43,66,88,0.24));
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 0 26px rgba(166,123,50,0.08);
+      color: #fff;
+      box-shadow: 0 0 22px rgba(43,66,88,0.12);
     }
 
-    .service-card h3,
-    .work-card h3,
-    .testimonial-card h3,
-    .contact-card h3 {
-      font-size: 1.16rem;
-      margin-bottom: 12px;
+    .mini-contact-card h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
       font-weight: 800;
     }
 
-    .service-card p,
-    .work-card p,
-    .testimonial-card p,
-    .contact-card p,
-    .find-box p {
-      line-height: 1.76;
-      color: #d8d3ca;
+    .mini-contact-card p {
+      color: var(--soft);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 18px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(166,123,50,0.16);
+    .contact-form-wrap {
+      position: relative;
+      padding: 28px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(18,20,23,0.92), rgba(21,24,28,0.88)),
+        linear-gradient(135deg, rgba(43,66,88,0.18), rgba(166,123,50,0.08));
       border: 1px solid rgba(255,255,255,0.08);
-      color: #fff3dc;
-      font-size: 0.8rem;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02), 0 0 34px rgba(43,66,88,0.14), var(--shadow-xl);
+      overflow: hidden;
+    }
+
+    .contact-form-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -30% auto auto -10%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(166,123,50,0.14);
+      filter: blur(35px);
+      pointer-events: none;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      font-size: 0.84rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      box-shadow: 0 0 18px rgba(166,123,50,0.08);
+      letter-spacing: 0.1em;
+      color: #ddd3c4;
     }
 
-    .find-box {
-      padding: 34px;
-      display: flex;
-      justify-content: space-between;
+    .contact-input,
+    .contact-textarea {
+      width: 100%;
+      padding: 17px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font: inherit;
+      outline: none;
+      transition: 0.28s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.01);
+    }
+
+    .contact-input::placeholder,
+    .contact-textarea::placeholder {
+      color: #94a0ab;
+    }
+
+    .contact-input:focus,
+    .contact-textarea:focus {
+      border-color: rgba(166,123,50,0.7);
+      background: rgba(43,66,88,0.24);
+      box-shadow: 0 0 0 4px rgba(166,123,50,0.12), 0 0 24px rgba(43,66,88,0.14);
+      transform: translateY(-1px);
+    }
+
+    .contact-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .error-text {
+      color: #ff8e8e;
+      font-size: 0.88rem;
+      line-height: 1.4;
+    }
+
+    .success-box {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(70, 166, 117, 0.12);
+      border: 1px solid rgba(70, 166, 117, 0.24);
+      color: #c7f3d6;
+      font-weight: 600;
+    }
+
+    .btn-liquid {
+      width: 100%;
+      display: inline-flex;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 24px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--sconce-gold), #bb8c40, var(--in-the-navy));
+      color: white;
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 34px rgba(166,123,50,0.22), 0 0 32px rgba(43,66,88,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-liquid::before {
+      content: "";
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      bottom: -160%;
+      height: 260%;
+      background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.28), rgba(255,255,255,0.06) 40%, transparent 65%);
+      transition: transform 0.55s ease;
+      transform: translateY(0);
+    }
+
+    .btn-liquid:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 40px rgba(166,123,50,0.3), 0 0 34px rgba(43,66,88,0.16);
+    }
+
+    .btn-liquid:hover::before {
+      transform: translateY(-26%);
+    }
+
+    .btn-liquid span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes pingGold {
+      0% { transform: scale(0.8); opacity: 0.9; }
+      80%, 100% { transform: scale(1.9); opacity: 0; }
     }
 
     .footer {
@@ -769,9 +958,50 @@
 
     @media (max-width: 1100px) {
       .hero-inner,
-      .about-grid {
+      .about-grid,
+      .contact-layout {
         grid-template-columns: 1fr;
       }
+
+      .hero-inner {
+        text-align: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .badge,
+      .hero-line,
+      .hero-menu {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-menu {
+        justify-content: center;
+      }
+
+      .visual-content {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-copy h4,
+      .visual-copy p {
+        max-width: 100%;
+      }
+
+      .visual-person {
+        justify-self: center;
+      }
+
+      .services-grid,
+      .work-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
 
       .hero-inner {
         text-align: center;
@@ -838,14 +1068,18 @@
       .work-card,
       .testimonial-card,
       .contact-card,
-      .find-box {
+      .find-box,
+      .contact-shell,
+      .contact-form-wrap {
         padding: 22px;
       }
 
       .services-grid,
       .work-grid,
       .testimonials-grid,
-      .contact-grid {
+      .contact-grid,
+      .contact-card-grid,
+      .form-grid {
         grid-template-columns: 1fr;
       }
 
@@ -874,6 +1108,10 @@
       .btn,
       .contact-form input {
         width: 100%;
+      }
+
+      .contact-heading {
+        font-size: clamp(2rem, 11vw, 3rem);
       }
     }
   </style>
@@ -1072,24 +1310,73 @@
 
     <section class="section" id="contact">
       <div class="container">
-        <h2 class="section-title reveal">Contact</h2>
-        <p class="section-subtitle reveal">
-          Ready to build something clean, organised, and impactful together? Let’s connect.
-        </p>
+        <div class="contact-shell reveal">
+          <div class="contact-layout">
+            <div class="contact-info-panel">
+              <div class="signal-pill">
+                <span class="signal-dot"></span>
+                <span>Transmission Ready</span>
+              </div>
 
-        <div class="contact-grid">
-          <article class="contact-card reveal">
-            <h3>Email</h3>
-            <p>ryan@example.com</p>
-          </article>
-          <article class="contact-card reveal">
-            <h3>Facebook</h3>
-            <p>facebook.com/ryanosuna</p>
-          </article>
-          <article class="contact-card reveal">
-            <h3>Location</h3>
-            <p>Open for remote work, collaboration, and creative support partnerships.</p>
-          </article>
+              <h2 class="contact-heading">Let’s Talk<br><span class="text-gradient">Creative Support.</span></h2>
+              <p class="contact-lead">
+                Clean systems, quick execution, and polished communication make a real difference. Fill out the form and let’s talk about how I can support your brand, workflow, and day to day operations.
+              </p>
+
+              <div class="contact-card-grid">
+                <article class="mini-contact-card">
+                  <div class="mini-contact-icon">✉️</div>
+                  <h4>Email Channel</h4>
+                  <p>ryan@example.com</p>
+                </article>
+
+                <article class="mini-contact-card">
+                  <div class="mini-contact-icon">📍</div>
+                  <h4>Work Setup</h4>
+                  <p>Remote support available worldwide</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="contact-form-wrap">
+              <div class="success-box" style="display:none;">Your message was sent successfully.</div>
+
+              <form>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="name">Name</label>
+                    <input id="name" class="contact-input" type="text" name="name" placeholder="Your full name">
+                  </div>
+
+                  <div class="form-field">
+                    <label for="email">Email</label>
+                    <input id="email" class="contact-input" type="email" name="email" placeholder="you@example.com">
+                  </div>
+
+                  <div class="form-field">
+                    <label for="contact_number">Contact Number</label>
+                    <input id="contact_number" class="contact-input" type="text" name="contact_number" placeholder="Your contact number">
+                  </div>
+
+                  <div class="form-field">
+                    <label for="subject">Subject</label>
+                    <input id="subject" class="contact-input" type="text" name="subject" placeholder="Project inquiry">
+                  </div>
+
+                  <div class="form-field full">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="contact-textarea" name="message" rows="6" placeholder="Tell me what you need help with..."></textarea>
+                  </div>
+
+                  <div class="form-field full" style="margin-bottom:0;">
+                    <button type="submit" class="btn-liquid">
+                      <span>Send Message</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
