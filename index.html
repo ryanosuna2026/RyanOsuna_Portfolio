@@ -1003,6 +1003,7 @@
   </style>
 </head>
 <body>
+  <canvas id="space-bg"></canvas>
   <div class="orb one"></div>
   <div class="orb two"></div>
   <div class="orb three"></div>
@@ -1290,6 +1291,49 @@
   </footer>
 
   <script>
+    // 🌌 MOVING GOLD PARTICLE BACKGROUND
+    const canvas = document.getElementById('space-bg');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      particles = Array.from({ length: 120 }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 2 + 0.5,
+        speed: Math.random() * 0.6 + 0.2,
+        alpha: Math.random()
+      }));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+
+      particles.forEach(p => {
+        p.y += p.speed;
+        if (p.y > h) {
+          p.y = 0;
+          p.x = Math.random() * w;
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(200,155,60,${p.alpha})`;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = 'rgba(200,155,60,0.8)';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    draw();
+    window.addEventListener('resize', resize);
+
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
