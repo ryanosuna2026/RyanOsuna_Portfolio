@@ -538,4 +538,605 @@
       color: #fff7ea;
       margin-bottom: 18px;
       text-transform: uppercase;
-      text-shadow:
+      text-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .visual-copy h4 {
+      font-size: clamp(1.26rem, 2vw, 1.95rem);
+      line-height: 1.45;
+      max-width: 12ch;
+      margin-bottom: 16px;
+      font-weight: 900;
+      color: #fff6ec;
+    }
+
+    .visual-copy p {
+      max-width: 280px;
+      line-height: 1.7;
+      color: rgba(255,245,233,0.94);
+      font-weight: 700;
+    }
+
+    .chevrons {
+      position: absolute;
+      right: 26px;
+      top: 78px;
+      display: grid;
+      gap: 12px;
+      z-index: 1;
+      opacity: 0.86;
+    }
+
+    .chevrons span {
+      width: 70px;
+      height: 30px;
+      border-right: 5px solid rgba(255,255,255,0.86);
+      border-bottom: 5px solid rgba(255,255,255,0.86);
+      transform: rotate(45deg);
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.08));
+    }
+
+    .visual-person {
+      align-self: end;
+      justify-self: end;
+      width: 100%;
+      max-width: 310px;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+      height: 100%;
+    }
+
+    .visual-person img {
+      width: 100%;
+      max-height: 470px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 24px rgba(0,0,0,0.24));
+      transform: translateY(10px);
+    }
+
+    .services-grid,
+    .work-grid,
+    .testimonials-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card,
+    .work-card,
+    .testimonial-card,
+    .contact-card,
+    .find-box {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025)),
+        linear-gradient(135deg, rgba(43,66,88,0.08), rgba(166,123,50,0.05));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(14px);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-card::before,
+    .work-card::before,
+    .testimonial-card::before,
+    .contact-card::before,
+    .find-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 40%);
+      pointer-events: none;
+    }
+
+    .service-card,
+    .work-card,
+    .testimonial-card,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .service-card:hover,
+    .work-card:hover,
+    .testimonial-card:hover,
+    .contact-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(166,123,50,0.22);
+      box-shadow:
+        0 20px 42px rgba(0,0,0,0.28),
+        0 0 24px rgba(166,123,50,0.10),
+        0 0 20px rgba(43,66,88,0.12);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.35rem;
+      background: linear-gradient(145deg, rgba(166,123,50,0.24), rgba(43,66,88,0.2));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 0 20px rgba(255,255,255,0.03), 0 0 26px rgba(166,123,50,0.08);
+    }
+
+    .service-card h3,
+    .work-card h3,
+    .testimonial-card h3,
+    .contact-card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .service-card p,
+    .work-card p,
+    .testimonial-card p,
+    .contact-card p,
+    .find-box p {
+      line-height: 1.76;
+      color: #d8d3ca;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(166,123,50,0.16);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #fff3dc;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 18px rgba(166,123,50,0.08);
+    }
+
+    .find-box {
+      padding: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 0 42px;
+      color: #bdb7ad;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(14px);
+      pointer-events: none;
+      opacity: 0.3;
+      animation: floaty 8s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 220px;
+      height: 220px;
+      top: 10%;
+      left: -70px;
+      background: rgba(166,123,50,0.22);
+    }
+
+    .orb.two {
+      width: 170px;
+      height: 170px;
+      right: 4%;
+      top: 26%;
+      background: rgba(43,66,88,0.28);
+      animation-delay: -1.7s;
+    }
+
+    .orb.three {
+      width: 190px;
+      height: 190px;
+      right: 10%;
+      bottom: 8%;
+      background: rgba(217,215,210,0.08);
+      animation-delay: -3.2s;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-16px); }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-inner,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        text-align: center;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .badge,
+      .hero-line,
+      .hero-menu {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-menu {
+        justify-content: center;
+      }
+
+      .visual-content {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-copy h4,
+      .visual-copy p {
+        max-width: 100%;
+      }
+
+      .visual-person {
+        justify-self: center;
+      }
+
+      .services-grid,
+      .work-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container,
+      .hero-inner {
+        width: min(var(--max-width), calc(100% - 26px));
+      }
+
+      .nav {
+        gap: 14px 18px;
+      }
+
+      .nav a,
+      .hero-menu a {
+        font-size: 0.84rem;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .about-copy,
+      .about-visual,
+      .service-card,
+      .work-card,
+      .testimonial-card,
+      .contact-card,
+      .find-box {
+        padding: 22px;
+      }
+
+      .services-grid,
+      .work-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lead-quote {
+        max-width: 100%;
+      }
+
+      .visual-card {
+        min-height: 640px;
+      }
+
+      .chevrons {
+        right: 14px;
+        top: 74px;
+      }
+
+      .chevrons span {
+        width: 54px;
+        height: 22px;
+      }
+
+      .contact-form {
+        flex-direction: column;
+      }
+
+      .btn,
+      .contact-form input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <header class="topbar">
+    <nav class="nav container">
+      <a href="#about" class="active">About Me</a>
+      <a href="#services">Things I Do</a>
+      <a href="#work">My Work</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a href="#find">Find</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="profile-wrap reveal show">
+        <div class="profile-ring">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Ryan profile photo">
+        </div>
+      </div>
+
+      <div class="hero-copy reveal show">
+        <div class="badge">Modern Portfolio • Sleek • Premium Energy</div>
+        <h1>Ryan Paul <span>Osuna</span></h1>
+        <p class="hero-role">Licensed Professional Teacher <span class="dot">•</span> Social Media Manager <span class="dot">•</span> CSM and Content Strategist</p>
+        <div class="hero-line"></div>
+        <div class="hero-menu">
+          <a href="#about">About Me</a>
+          <a href="#services">Things I Do</a>
+          <a href="#work">My Work</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+          <a href="#find">Find</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="glass-card about-copy reveal">
+          <div class="quote-mark">“</div>
+          <h2 class="lead-quote">Your trusted partner in getting things done right.</h2>
+          <div class="mini-line"></div>
+          <p><strong>Too many tasks?</strong></p>
+          <p>
+            I take them off your plate quickly and accurately. From inbox and calendar management to admin support and content tasks, I make sure <strong>everything runs smoothly</strong> without you needing to chase updates.
+          </p>
+          <p>
+            <strong>No delays. No mess. Just results.</strong><br>
+            You focus on growing your brand and business. I will handle the execution with consistency and polish.
+          </p>
+          <p class="accent-text">💅 Clean systems. Sharp delivery. Good vibes only.</p>
+          <p>Send me a message today.</p>
+
+          <form class="contact-form">
+            <input type="email" placeholder="Email">
+            <button type="button" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+        <div class="glass-card about-visual reveal">
+          <div class="visual-card">
+            <div class="visual-shape"></div>
+            <div class="chevrons">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="visual-content">
+              <div class="visual-copy">
+                <h3>Ryan Osuna</h3>
+                <h4>Hi! I’m your future virtual assistant partner.</h4>
+                <p>Keep scrolling. Your next reliable creative support system might already be right here.</p>
+              </div>
+              <div class="visual-person">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=80" alt="Ryan standing portrait">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title reveal">Things I Do</h2>
+        <p class="section-subtitle reveal">
+          I help business owners and brands stay organised, visible, and on point through reliable support, strategic content, and polished day to day execution.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="icon">📅</div>
+            <h3>Calendar and Inbox Management</h3>
+            <p>I organise schedules, clean up communication, and keep priorities moving without chaos.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon">📝</div>
+            <h3>Content Planning</h3>
+            <p>I build posting systems, map out content, and help your presence feel intentional and consistent.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon">🎯</div>
+            <h3>Social Media Support</h3>
+            <p>I support posting, coordination, content flow, and brand alignment across your channels.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon">📊</div>
+            <h3>Admin and Reporting</h3>
+            <p>I turn messy updates into clean dashboards, summaries, and systems that make sense fast.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon">🤝</div>
+            <h3>Client Communication</h3>
+            <p>I help keep interactions warm, timely, and professional so your brand always feels looked after.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="icon">⚡</div>
+            <h3>Task Execution</h3>
+            <p>Fast, organised, detail focused support that keeps your operations smooth and your standards high.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <h2 class="section-title reveal">My Work</h2>
+        <p class="section-subtitle reveal">
+          A few portfolio style highlights showing where strategy, aesthetics, and dependable execution meet.
+        </p>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <h3>Personal Brand Website</h3>
+            <p>A trust building personal site designed to look sleek, modern, and instantly credible.</p>
+            <span class="tag">Brand Presence</span>
+          </article>
+
+          <article class="work-card reveal">
+            <h3>Content Workflow Setup</h3>
+            <p>Structured planning systems for content schedules, tasks, approvals, and social consistency.</p>
+            <span class="tag">Content Ops</span>
+          </article>
+
+          <article class="work-card reveal">
+            <h3>Virtual Assistant Systems</h3>
+            <p>Polished support workflows for admin, follow ups, organisation, and daily business execution.</p>
+            <span class="tag">Productivity</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <h2 class="section-title reveal">Testimonials</h2>
+        <p class="section-subtitle reveal">
+          The goal is simple. Make every collaboration feel easy, elevated, and genuinely valuable.
+        </p>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <h3>Efficient and dependable</h3>
+            <p>Ryan brought structure into our daily workflow and helped everything feel more organised almost instantly.</p>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <h3>Professional and proactive</h3>
+            <p>He follows through, communicates well, and handles responsibilities with a level of polish that stands out.</p>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <h3>Easy to trust</h3>
+            <p>Reliable, collaborative, and detail oriented. Exactly the type of support growing brands need behind the scenes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal">Contact</h2>
+        <p class="section-subtitle reveal">
+          Ready to build something clean, organised, and impactful together? Let’s connect.
+        </p>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <h3>Email</h3>
+            <p>ryan@example.com</p>
+          </article>
+          <article class="contact-card reveal">
+            <h3>Facebook</h3>
+            <p>facebook.com/ryanosuna</p>
+          </article>
+          <article class="contact-card reveal">
+            <h3>Location</h3>
+            <p>Open for remote work, collaboration, and creative support partnerships.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="find">
+      <div class="container">
+        <div class="find-box reveal">
+          <div>
+            <h2 class="section-title" style="margin-bottom: 12px;">Find Me</h2>
+            <p>
+              This updated version uses your palette of Tricorn Black, Sconce Gold, In The Navy, and Essential Gray to make the portfolio feel more premium, glowy, and modern without looking boring or generic.
+            </p>
+          </div>
+          <a href="#contact" class="btn btn-primary">Let’s Connect</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Ryan Paul Osuna. Designed with glow, polish, and portfolio energy.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const navLinks = document.querySelectorAll('.nav a');
+    const sections = [...document.querySelectorAll('section[id]')];
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset + 140;
+      sections.forEach((section) => {
+        if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach((link) => link.classList.remove('active'));
+          const active = document.querySelector(`.nav a[href="#${section.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
